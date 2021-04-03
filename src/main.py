@@ -26,11 +26,13 @@ try:
     font24 = ImageFont.truetype(os.path.join(resourcesdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(resourcesdir, 'Font.ttc'), 18)
 
-    image_black = Image.open(os.path.join(resourcesdir, 'demo_black.bmp'))
-    image_red = Image.open(os.path.join(resourcesdir, 'demo_red.bmp'))
-    # empty_image = Image.new('1', (epd.width, epd.height), 255)
+    # image_black = Image.open(os.path.join(resourcesdir, 'demo_black.bmp'))
+    # image_red = Image.open(os.path.join(resourcesdir, 'demo_red.bmp'))
 
-    epd.display(epd.getbuffer(image_black), epd.getbuffer(image_red))
+    image = Image.open(os.path.join(resourcesdir, 'test_small.bmp'))
+    empty_image = Image.new('1', (epd.width, epd.height), 255)
+
+    epd.display(epd.getbuffer(image), epd.getbuffer(empty_image))
 
     time.sleep(15)
 
