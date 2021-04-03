@@ -1,7 +1,11 @@
 import sys
 import os
+libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
+if os.path.exists(libdir):
+    sys.path.append(libdir)
+
 import logging
-from lib import epd7in5b_HD
+from . import epd7in5b_HD
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
