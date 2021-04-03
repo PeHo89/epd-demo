@@ -26,16 +26,10 @@ try:
     font24 = ImageFont.truetype(os.path.join(resourcesdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(resourcesdir, 'Font.ttc'), 18)
 
-    # Drawing on the Horizontal image
-    logging.info("1.Drawing on the Horizontal image...")
-    Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
-    Other = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+    image = Image.open(os.path.join(resourcesdir, 'demo.bmp'))
+    empty_image = Image.new('1', (epd.width, epd.height), 255)
 
-    draw_other = ImageDraw.Draw(Other)
-
-    draw_other.rectangle((20, 20, 50, 50), fill=1)
-
-    epd.display(epd.getbuffer(Himage),epd.getbuffer(Other))
+    epd.display(epd.getbuffer(image), epd.getbuffer(empty_image))
 
     time.sleep(5)
 
