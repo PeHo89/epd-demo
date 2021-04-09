@@ -29,7 +29,7 @@ try:
     # image_black = Image.open(os.path.join(resourcesdir, 'demo_black.bmp'))
     # image_red = Image.open(os.path.join(resourcesdir, 'demo_red.bmp'))
 
-    image = Image.open(os.path.join(resourcesdir, 'postbox.bmp'))
+    image = Image.open(os.path.join(resourcesdir, 'message.bmp'))
     empty_image = Image.new('1', (epd.width, epd.height), 255)
 
     epd.display(epd.getbuffer(image), epd.getbuffer(empty_image))
