@@ -17,8 +17,10 @@ sudo dpkg -i wiringpi-latest.deb
 gpio -v
 
 sudo apt-get update
-sudo apt-get install python3-pip
-sudo apt-get install python3-pil
-sudo apt-get install python3-numpy
+sudo apt-get install python3-pip -y
+sudo apt-get install python3-pil -y
+sudo apt-get install python3-numpy -y
 sudo pip3 install RPi.GPIO
 sudo pip3 install spidev
+
+sudo dtparam spi=on
