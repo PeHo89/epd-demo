@@ -20,12 +20,13 @@ try:
     epd = epd7in5b_HD.EPD()
 
     logging.info("init and Clear")
+    epd.init()
+    epd.Clear()
 
     empty_image = Image.new('1', (epd.width, epd.height), 255)
 
     while True:
         epd.init()
-        epd.Clear()
 
         image = Image.open(os.path.join(resourcesdir, 'message.bmp'))
 
@@ -35,9 +36,7 @@ try:
         epd.sleep()
         time.sleep(15)
 
-        logging.info("Clear...")
         epd.init()
-        epd.Clear()
 
         image = Image.open(os.path.join(resourcesdir, 'postbox.bmp'))
 
