@@ -20,28 +20,32 @@ try:
     epd = epd7in5b_HD.EPD()
 
     logging.info("init and Clear")
-    epd.init()
-    epd.Clear()
 
-    font24 = ImageFont.truetype(os.path.join(resourcesdir, 'Font.ttc'), 24)
-    font18 = ImageFont.truetype(os.path.join(resourcesdir, 'Font.ttc'), 18)
-
-    # image_black = Image.open(os.path.join(resourcesdir, 'demo_black.bmp'))
-    # image_red = Image.open(os.path.join(resourcesdir, 'demo_red.bmp'))
-
-    image = Image.open(os.path.join(resourcesdir, 'message.bmp'))
     empty_image = Image.new('1', (epd.width, epd.height), 255)
 
-    epd.display(epd.getbuffer(image), epd.getbuffer(empty_image))
+    while True:
+        epd.init()
+        epd.Clear()
 
-    time.sleep(15)
+        image = Image.open(os.path.join(resourcesdir, 'message.bmp'))
 
-    logging.info("Clear...")
-    epd.init()
-    epd.Clear()
+        epd.display(epd.getbuffer(image), epd.getbuffer(empty_image))
 
-    logging.info("Goto Sleep...")
-    epd.sleep()
+        logging.info("Goto Sleep...")
+        epd.sleep()
+        time.sleep(15)
+
+        logging.info("Clear...")
+        epd.init()
+        epd.Clear()
+
+        image = Image.open(os.path.join(resourcesdir, 'postbox.bmp'))
+
+        epd.display(epd.getbuffer(image), epd.getbuffer(empty_image))
+
+        logging.info("Goto Sleep...")
+        epd.sleep()
+        time.sleep(15)
     
 except IOError as e:
     logging.info(e)
