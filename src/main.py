@@ -34,7 +34,7 @@ try:
 
         logging.info("Goto Sleep...")
         epd.sleep()
-        time.sleep(3600)
+        time.sleep(7200)
 
         epd.init()
 
@@ -44,7 +44,7 @@ try:
 
         logging.info("Goto Sleep...")
         epd.sleep()
-        time.sleep(3600)
+        time.sleep(7200)
     
 except IOError as e:
     logging.info(e)
