@@ -26,6 +26,8 @@ try:
     empty_image = Image.new('1', (epd.width, epd.height), 255)
 
     while True:
+        epd.init()
+        
         image = Image.open(os.path.join(resourcesdir, 'message.bmp'))
 
         epd.display(epd.getbuffer(image), epd.getbuffer(empty_image))
@@ -33,6 +35,8 @@ try:
         logging.info("Goto Sleep...")
         epd.sleep()
         time.sleep(7200)
+
+        epd.init()
 
         image = Image.open(os.path.join(resourcesdir, 'postbox.bmp'))
 
